@@ -9,6 +9,7 @@
     --primary-color: #1C1C1E;
     --text-color: #fff;
     --btn-color: #2C2C2E;
+    --progress-color: #FFA209;
 
     /* Typography */
     --font-Roboto: 'Roboto', sans-serif;
@@ -118,7 +119,7 @@ body {
 
 .timer__progress-ring {
     stroke-width: 10;
-    stroke: rgb(59, 56, 56);
+    stroke: var(--progress-color);
     stroke-linecap: round;
     fill: none;
     transform: rotate(270deg);

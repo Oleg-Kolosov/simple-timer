@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="index.js" defer></script>
     <title>Simple timer</title>
 </head>
 <body>
-    <div class="app">
-        <h2>Timer</h2>
-        <p id="timer-count">0</p>
-        <div>
-            <button id="btn-pause" type="button" disabled>Pause</button>
-            <button id="btn-reset" type="button" disabled>Reset</button>
-            <button id="btn-start" type="button">Start</button>
+    <div class="timer">
+        <h2 class='timer__title'>Timer</h2>
+        <div class="timer__display">
+            <p class="timer__count" id="timer-count">0</p>
+            <p class="timer__text">seconds</p>
+            <svg class="timer__progress">
+                <circle class='timer__progress-ring' cy="130" cx="130" r="100"></circle>
+            </svg>
+        </div>
+        <div class="timer__buttons">
+            <button class="timer__button" id="btn-pause" type="button" disabled>Pause</button>
+            <button class="timer__button" id="btn-reset" type="button" disabled>Reset</button>
+            <button class="timer__button" id="btn-start" type="button">Start</button>
         </div>
     </div>
 </body>

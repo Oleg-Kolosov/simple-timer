@@ -1,40 +1,126 @@
+/* || ROOT Config
+---------------------------------------------------------------- */
+:root {
+    /* Sizes */
+    --timer-width: 100vw;
+    --timer-height: 100vh;
+
+    /* Colors */
+    --primary-color: #1C1C1E;
+    --text-color: #fff;
+    --btn-color: #2C2C2E;
+
+    /* Typography */
+    --font-Roboto: 'Roboto', sans-serif;
+    --text-sm: 0.8rem;
+    --text-md: 1rem;
+    --text-2xl: 4.5rem;
+
+    /* Mics */
+    --primary-radius: 0;
+    --secondary-radius: 10px;
+    --decrease-opacity: 0.16;
+}
+
+@media screen and (min-width: 568px) {
+    :root {
+        --primary-radius: 20px;
+        --timer-width: initial;
+        --timer-height: initial;
+    }
+}
+
+/* || Reset user agent stylesheet
+-----------------------------------------------------------------*/
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* || BASE
+----------------------------------------------------------------- */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-Roboto);
+    min-height: 100vh;
+    background: #2c2c2e;
 }
 
-button {
-    padding: 1rem 2rem;
-    font-family: inherit;
-    color: #fff;
-    background: #333;
-    
-    border-radius: 10px;
-    cursor: pointer;
-    opacity: .9;
-}
-
-button:hover{
-    opacity: 1;
-}
-
-button:disabled{
-    opacity: .2;
-}
-
-.app {
+/* || APP
+----------------------------------------------------------------- */
+.timer {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
-    min-height: 100vh;
-    gap: 2rem;
-    padding: 2rem;
-    background: #e2e2e2;
+    width: var(--timer-width);
+    height: var(--timer-height);
+
+    gap: 10rem;
+    padding: 2rem 1rem;
+    background: var(--primary-color);
+    border-radius: var( --primary-radius);
 }
 
+.timer__display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.timer__title {
+    color: var(--text-color);
+    font-size: var(--text-md);
+    text-transform: uppercase;
+}
+
+.timer__count {
+    color: var(--text-color);
+    font-size: var(--text-2xl);
+    opacity: var(--decrease-opacity);
+}
+
+.timer__text {
+    color: var(--text-color);
+    font-size: var(--text-sm);
+}
+
+.timer__button {
+    padding: .5rem 1.5rem;
+    font-family: inherit;
+    font-size: var(--text-md);
+    color: var(--text-color);
+    background: var(--btn-color);
+    
+    border-radius: var(--secondary-radius);
+    cursor: pointer;
+    border: none;
+}
+
+.timer__button:disabled{
+    opacity: var(--decrease-opacity);
+}
+
+.timer__progress {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: 260px;
+}
+
+.timer__progress-ring {
+    stroke-width: 10;
+    stroke: rgb(59, 56, 56);
+    stroke-linecap: round;
+    fill: none;
+    transform: rotate(270deg);
+    transform-origin: center;
+}
